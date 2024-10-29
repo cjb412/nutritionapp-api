@@ -41,12 +41,12 @@ jobs:
           chmod 600 ec2_key.pem  # Set appropriate permissions
       
           # Use scp to copy the JAR file to the EC2 instance
-          scp -i ec2_key.pem application.jar $EC2_USER@$EC2_HOST:/application.jar
+          scp -i ec2_key.pem application.jar $EC2_USER@$EC2_HOST:/home/$EC2_USER/application.jar
       
           # Execute commands on the EC2 instance
           ssh -i ec2_key.pem $EC2_USER@$EC2_HOST << 'EOF'
             pkill -f 'java -jar' || true
-            nohup java -jar /application.jar > app.log 2>&1 &
+            nohup java -jar /home/$EC2_USER/application.jar > app.log 2>&1 &
           EOF
       
           # Clean up the temporary key file

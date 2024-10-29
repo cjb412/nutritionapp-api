@@ -10,7 +10,7 @@ public class DefaultController {
     
     @GetMapping("/default")
     public ResponseEntity<String> checkDefault() {
-        return new ResponseEntity<>("Service is up and running!", HttpStatus.OK);
+        return new ResponseEntity<>("Service is up and running! With some additional text to test deployment.", HttpStatus.OK);
     }
 
 }

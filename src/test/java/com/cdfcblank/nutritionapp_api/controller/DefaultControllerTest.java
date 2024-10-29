@@ -24,6 +24,6 @@ public class DefaultControllerTest {
         mockMvc.perform(get("/default")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("Service is up and running!"));
+                .andExpect(content().string("Service is up and running! With some additional text to test deployment."));
     }
 }
